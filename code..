@@ -1,0 +1,41 @@
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+
+#load the image in grayscale
+#replace 'input_image.jpg' with your file name
+img = cv2.imread('/content/eiffel.jpg',cv2.IMREAD_GRAYSCALE)
+
+#check if image loaded successfully
+if img is None:
+  print("error:image not found.")
+else:
+  #set up the plot figure
+  plt.figure(figsize=(12,10))
+
+  #display original image
+  plt.subplot(3,3,1)
+  plt.imshow(img,cmap='gray')
+  plt.title('Original Image')
+  plt.axis('off')
+
+  #loop through all 8 bit planes
+  for i in range(8):
+    #extract the i-th bit plane
+    #shift bits right by 'i' and perform bitwise AND with 1
+    bit_plane = (img>>i) & 1
+
+    #scale to 0-255 for visulization () becomes black,1 becomes white)
+    vis_plane = bit_plane * 255
+
+    #plotting
+    plt.subplot(3,3,i+2) #position starts from 2
+    plt.imshow(vis_plane,cmap='gray')
+    plt.title(f'Bit Plane {i}')
+    plt.axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
