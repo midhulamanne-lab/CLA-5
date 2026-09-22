@@ -1,5 +1,6 @@
 # Bit Plane Slicing in Computer Vision
 <img src="eiffel.png" alt="Output Image" width="200">
+<img src="download.png" alt="Output Image" width="200">
 ## Aim
 
 To study and understand the concept of **Bit Plane Slicing** in Computer Vision and Digital Image Processing by separating a grayscale image into different bit planes.
